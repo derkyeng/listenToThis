@@ -1,3 +1,11 @@
+const refreshBtn = document.querySelector('.refresh');
+
+refreshBtn.addEventListener('click', () =>{
+    getData().then((value) =>{
+        createText(value);
+    });
+});
+
 async function getData(){
     options = {
         method: 'GET',
@@ -33,6 +41,3 @@ function createText(value){
     }
 }
 
-getData().then((value) =>{
-    createText(value);
-});
