@@ -1,19 +1,25 @@
 const refreshBtn = document.querySelector('.refresh');
+const postNum = document.querySelector('#postNum');
+
+let input = 1;
 
 refreshBtn.addEventListener('click', () =>{
+    input = postNum.value;
     getData().then((value) =>{
         createText(value);
     });
 });
 
 async function getData(){
+    const data = {'userInput': input};
     options = {
-        method: 'GET',
+        method: 'POST',
         headers: {
-        'Content-Type': 'application/json'
-        }
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
     };
-    const response = await fetch('/api', options);
+    const response = await fetch('/post', options);
     const json = await response.json();
     const titlesData = [[],[]];
     for (i = 0; i < json.titles.length; i++){

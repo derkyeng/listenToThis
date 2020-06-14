@@ -7,13 +7,18 @@ require('dotenv').config();
 //Server Setup
 const app = express();
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
 app.listen('8888', () => console.log('Listening on localhost:8888'));
 app.use(express.static('public'));
 app.use(express.json());
 
 //Routes
-app.get('/api', (req, res) =>{
-    getPosts(3).then(() => {
+app.post('/post', (req, res) =>{
+    //The -1 gets rid of the mod post
+    const input = parseInt(req.body.userInput - 1);
+    getPosts(input).then(() => {
         res.json({
             titles: postsArray,
             url: postsUrl
