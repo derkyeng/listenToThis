@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    background-color: #ff6666;
+}
+.menu {
+    width: 25%;
+    float: left;
+    padding: 15px;
+    border-radius: 25px;
+    margin-right: 1em;
+    background-color: white;
+}
+h1{
+    background-color: white;
+    color: black;
+}
+h2{
+    background-color: white;
+    color: black;
+}
+input{
+    background-color: white;
+}
+button{
+    background-color: white;
+}
+
+div{
+    background-color: white;
+    color: black;
+}
+.temp{
+    background-color: white;
+    margin-bottom: 10px;
+}
+a{
+    background-color: white;
+}
+  
+.main {
+    width: 70%;
+    float: left;
+    padding: 15px;
+    border-radius: 25px;
+    background-color: white;
+    color: white;
+}
+

@@ -40,8 +40,10 @@ const postsUrl = [];
 async function getPosts(postLimit){
     const postTitle = await reddit.getSubreddit('askreddit').getHot({limit: postLimit});
     for (i = 0; i < postTitle.length; i++){
-        postsArray.push(postTitle[i].title);
-        postsUrl.push(postTitle[i].url);
+        if (!postsArray.includes(postTitle[i].title)){
+            postsArray.push(postTitle[i].title);
+            postsUrl.push(postTitle[i].url);
+        }
     }
     return postTitle;
 }
